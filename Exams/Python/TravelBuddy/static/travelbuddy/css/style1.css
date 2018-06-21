@@ -1,0 +1,26 @@
+.header{
+    position: relative;
+    left: 65%;
+}
+.header a{
+    color: rgb(65, 112, 199);
+
+}
+a{
+    color: rgb(65, 115, 255);
+}
+
+.th ,td{
+margin-top: 5px;
+height: 20px;
+display: block;
+text-align: left;
+
+}
+.container{
+text-align: left;
+padding: 8px;
+}
+.h3{
+    text-align: left; 
+}

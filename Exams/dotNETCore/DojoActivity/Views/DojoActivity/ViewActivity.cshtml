@@ -1,0 +1,14 @@
+@model beltexam.Models.DojoActivity
+@{
+    var activity = @Model;
+}
+<p><h1>@activity.Title</h1></p>
+<p>Event coordinator: @activity.User.Firstname</p>
+<p>Description: @activity.Description</p>
+<p>Participants</p>
+@{
+    foreach(var participant in activity.Participants)
+    {
+        <p>@participant.UserParticipant.Firstname @participant.UserParticipant.Lastname</p>
+    }
+}

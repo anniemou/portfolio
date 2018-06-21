@@ -1,0 +1,59 @@
+<h1>Dojo Activity Center Welcome  @ViewBag.Firstname!</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Activity</th>
+      <th scope="col">Date and Time</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Event Coordinator</th>
+      <th scope="col">Number of Participants</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+      @{
+          var activities = ViewBag.Activities;
+          var email = ViewBag.Email;
+
+          foreach (var activity in activities)
+          {
+            var check = false;
+            foreach(var participant in activity.Participants)
+            {
+              if (participant.UserParticipant != null &&
+                participant.UserParticipant.Email == email)
+              {
+                check = true;
+              }
+            }
+            <tr>
+                <th scope="row"><a asp-controller="DojoActivity" asp-action="ViewActivity" asp-route-id="@activity.DojoActivityId">@activity.Title</a></th>
+                <td>@activity.Date.ToShortDateString() @activity.Time</td>
+                <td>@activity.Duration @activity.DurationText</td>
+                <td>@activity.User.Firstname</td>
+                <td>@activity.Participants.Count</td>
+                <td>
+                    @if (activity.User.Email == email)
+                    {
+                      <a asp-controller="DojoActivity" asp-action="Delete" asp-route-id="@activity.DojoActivityId">Delete</a>
+                    } else 
+                    { 
+                      if (check) 
+                      {
+                        <a asp-controller="DojoActivity" asp-action="Leave" asp-route-id="@activity.DojoActivityId">Leave</a>
+                      } else {
+                        <a asp-controller="DojoActivity" asp-action="Join" asp-route-id="@activity.DojoActivityId">Join</a>
+                      }
+                      
+                    }
+                </td>
+            </tr>
+          }
+      }
+  </tbody>
+</table>
+
+<form asp-controller="DojoActivity" asp-action="Create" method="get">
+    <button type="submit">Add New Activity!</button>
+</form> 

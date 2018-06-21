@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> {% load static %}
+    <link rel="stylesheet" href="{% static 'travelbuddy/css/style1.css' %}" media="screen" title="no title" charset="utf-8">
+    <title>Show trip</title>
+</head>
+
+<body>
+       <div class="header" class="left">
+        <a href="/">Home</a> |
+        <a href="/logout">Logout</a>
+    </div>
+    <table>
+        <tbody>
+            <thead>
+                <th>
+                    <div class="h3">
+                        <h3>{{travel.destination}}</h3>
+                    </div>
+                </th>
+            </thead>
+            <tr>
+                <td>
+                    <b>Planned By:</b> {{travel.creator.fullname}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Description:</b> {{travel.description}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Travel Date From:</b> {{travel.datestart}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Travel Date end:</b> {{travel.dateend}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <br>
+    <div class="container">
+        <h3>Other User's Joining the Trip:</h3>
+        {%for user in others%}
+        <h4> {{user.fullname}}</h4>
+        {%endfor%}
+        <br> {%if travel.creator.id == user.id%}
+        <h5>
+            <a href="/delete/{{travel.id}}">Delete</a>
+        </h5>
+        {%endif%}
+</body>
+
+</html>

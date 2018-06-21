@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> {% load static %}
+    <link rel="stylesheet" href="{% static 'travelbuddy/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+    <title>Login | Registration</title>
+</head>
+
+<body>
+    <h2>Welcome!</h2>
+    <div class="photo">
+        </div>
+    <div class="register">
+        <h3>Registration</h3>
+        <form action="/register/" method="post">
+            {% csrf_token %}
+            
+            <p>
+                <label for="fullname">Name: </label>
+                <input type="text" name="fullname" id="fullname" placeholder="Enter your name">
+            </p>
+            <p>
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+            </p>
+            <p>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+            </p>
+            <p>
+                <label for="cfpassword">Confirm Password: </label>
+                <input type="password" name="cfpassword" id="cfpassword" placeholder="Confirm your password">
+            </p>
+            <input type="submit" class="left" value="Register">
+        </form>
+    </div>
+    <div class="login">
+        <h3>Login</h3>
+        <form action="/login/" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+            </p>
+            <p>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+            </p>
+            <input type="submit" class="left" value="Login">
+        </form>
+    </div>
+</body>
+
+</html>

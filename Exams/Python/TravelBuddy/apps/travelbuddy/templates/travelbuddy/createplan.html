@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'travelbuddy/css/style.css' %}" media="screen" title="no title" charset="utf-8">
+    <title>Create a new travel plan</title>
+</head>
+
+<body>
+    <div class="header" class="left">
+        <a href="/">Home</a> |
+        <a href="/logout">Logout</a>
+    </div>
+    <h1>Add a Trip</h1>
+    <form action="/addplan/" method="POST">
+        {% csrf_token %}
+        <p>
+            <label for="destination">Destination: </label>
+            <textarea name="destination" placeholder="The destination"></textarea>
+        </p>
+        <p>
+            <label for="description">Description: </label>
+            <textarea name="description" placeholder="Trip description"></textarea>
+        </p>
+        <p>
+            <label for="datestart">Travel Date From:</label>
+            <input name="datestart" id="datestart" type="date" placeholder="Start of trip">
+        </p>
+        <p>
+            <label for="dateend">Travel Date To:</label>
+            <input name="dateend" id="dateend" type="date" placeholder="End of trip">
+        </p>
+        <input type="submit" value="Add">
+    </form>
+</body>
+
+</html>

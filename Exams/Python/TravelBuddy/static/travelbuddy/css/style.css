@@ -1,0 +1,54 @@
+* {
+    margin-left: 6px;
+}
+.main{
+    max-width: 900px;
+    width: 900px;
+    margin: 0 auto;
+    
+}
+.register{
+    width: 35%;
+    height: 50%;
+    display: inline-block;
+    border: 2px;
+    border-style: solid;
+    vertical-align: top;
+    
+}
+.login{
+    width: 25%;
+    height: 60%;
+    display: inline-block;
+    border: 2px;
+    vertical-align: top;
+    border-style: solid;
+}
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.left {
+    position: relative;
+    left: 50%;
+}
+.header{
+    position: relative;
+    left: 65%;
+}
+.header a{
+    color: rgb(65, 112, 199);
+
+}
+a{
+    color: rgb(65, 115, 255);
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
